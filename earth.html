@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Earth Wonders | Immersive Nature Gallery</title>
+
+    <!-- Redirect to index.html if someone directly opens earth.html (Referrer security) -->
+    <script>
+        if (!document.referrer.includes("index.html") && window.location.pathname.includes("earth.html")) {
+            window.location.href = "index.html";
+        }
+    </script>
+
+    <!-- Google Fonts: Orbitron for titles, Poppins for user interface, Inter for descriptions -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@500;700;900&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- Local Stylesheet -->
+    <link rel="stylesheet" href="earth.css">
+</head>
+
+<body>
+    <!-- Glowing mouse cursor -->
+    <div class="glow-cursor" id="glowCursor"></div>
+
+    <!--==========================
+        Animated Cosmic Stars & Particle Backgrounds
+    ===========================-->
+    <div class="stars"></div>
+    <div class="shooting-stars"></div>
+    <canvas id="earthBackgroundCanvas" class="earth-bg-canvas"></canvas>
+
+    <!--==========================
+        Navbar (Floating Glassmorphism)
+    ===========================-->
+    <header class="navbar-wrapper">
+        <nav class="navbar glass-effect" aria-label="Earth Wonders Navigation">
+            <div class="logo font-orbitron">
+                <span class="logo-emoji">🌍</span> <span class="logo-gradient">Earth Wonders</span>
+            </div>
+
+            <!-- Hamburger Button for Mobile -->
+            <button class="mobile-toggle" id="mobileNavToggle" aria-expanded="false" aria-controls="navLinks"
+                aria-label="Toggle navigation menu">
+                <span class="bar bar-1"></span>
+                <span class="bar bar-2"></span>
+                <span class="bar bar-3"></span>
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="#featured" class="nav-link">Featured</a></li>
+                <li><a href="#gallerySection" class="nav-link active">Gallery</a></li>
+                <li><a href="#footer" class="nav-link">About</a></li>
+            </ul>
+
+            <div class="nav-controls">
+                <button id="themeBtn" class="icon-control-btn" aria-label="Toggle light and dark visual themes"
+                    title="Toggle Theme">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!--==========================
+        Hero Landing Section
+    ===========================-->
+    <section class="hero">
+        <div class="overlay"></div>
+        <div class="hero-content">
+            <span class="badge animate-pulse">
+                🌎 Planetary Geography Catalog
+            </span>
+            <h1 class="font-orbitron hero-title">
+                Discover Earth's <br><span class="highlight-text">Vibrant Landscapes</span>
+            </h1>
+            <p class="font-inter hero-desc">
+                An immersive visual portfolio compiling waterfalls, glaciers, active volcanoes, high-altitude ranges,
+                and remote island archipelagos captured by global photographers.
+            </p>
+            <button id="exploreBtn" class="primary-btn ripple-btn">
+                <i class="fa-solid fa-earth-americas btn-icon-spin"></i> Explore Nature Records
+            </button>
+        </div>
+    </section>
+
+    <!--==========================
+        Search Panel
+    ===========================-->
+    <section class="search-section">
+        <div class="search-container-card glass-card">
+            <h2 class="font-orbitron"><i class="fa-solid fa-magnifying-glass text-cyan"></i> Retrieve Planetary Records
+            </h2>
+            <p class="search-subtitle font-inter">Input geographical structures to query photographic indices from the
+                Unsplash repository.</p>
+
+            <div class="search-box">
+                <input id="searchInput" type="text"
+                    placeholder="Search waterfalls, glaciers, active volcanoes, forests..." class="custom-search-input">
+                <button id="searchBtn" class="primary-btn ripple-btn">
+                    Scan Coordinates
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!--==========================
+        Interactive Categories Selector
+    ===========================-->
+    <section class="categories-section">
+        <div class="categories-container" id="categoryWrapper">
+            <button class="category-btn active" data-query="waterfall">💦 Waterfalls</button>
+            <button class="category-btn" data-query="volcano">🌋 Volcanoes</button>
+            <button class="category-btn" data-query="glacier">❄ Glaciers</button>
+            <button class="category-btn" data-query="mountain">🏔 Mountains</button>
+            <button class="category-btn" data-query="forest">🌲 Forests</button>
+            <button class="category-btn" data-query="island">🏝 Islands</button>
+            <button class="category-btn" data-query="beach">🏖 Beaches</button>
+            <button class="category-btn" data-query="aurora">🌌 Aurora</button>
+            <button class="category-btn" data-query="desert">🏜 Desert</button>
+            <button class="category-btn" data-query="flower">🌺 Flowers</button>
+        </div>
+    </section>
+
+    <!--==========================
+        Featured Destination Spot
+    ===========================-->
+    <section id="featured" class="featured-section">
+        <div class="featured-card glass-card">
+            <div class="featured-content">
+                <span class="featured-tag font-orbitron">
+                    <i class="fa-solid fa-award text-yellow animate-float"></i> FEATURED LANDSCAPE
+                </span>
+                <h2 class="font-orbitron" id="featuredTitle">Niagara Falls</h2>
+                <p class="font-inter" id="featuredDesc">
+                    One of the most famous waterfalls in the world, located on the border of Canada and the USA. Syncing
+                    spectrum feeds...
+                </p>
+                <button class="primary-btn ripple-btn" id="featuredExploreBtn">
+                    View Gallery Coordinates
+                </button>
+            </div>
+
+            <div class="featured-image skeleton-loader">
+                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" alt="Featured Nature Location"
+                    id="featuredImg" class="lazy-load">
+            </div>
+        </div>
+    </section>
+
+    <!--==========================
+        Nature Gallery Grid
+    ===========================-->
+    <section id="gallerySection" class="gallery-section">
+        <div class="section-title">
+            <span class="section-tag font-orbitron">Captured Coordinates</span>
+            <h1 class="font-orbitron">🌍 Nature Gallery</h1>
+            <p class="section-desc font-inter">Live geographical archives updated dynamically. Hover cards to resolve
+                camera exposure variables.</p>
+        </div>
+
+        <div class="gallery-grid-wrapper">
+            <div id="gallery">
+                <!-- Nature grids are loaded dynamically by earth.js -->
+            </div>
+        </div>
+    </section>
+
+    <!--==========================
+        System Loader Widget
+    ==========================-->
+    <div id="loader" class="loader hidden">
+        <div class="space-loader-wrapper">
+            <div class="space-loader">
+                <div class="earth-orbit">
+                    <div class="planet loader-earth"></div>
+                </div>
+                <div class="planet mars"></div>
+                <div class="planet saturn"></div>
+            </div>
+            <h2 class="font-orbitron text-pulse">CONNECTING TO UNSPLASH IMAGING CORES...</h2>
+            <p class="font-inter">Decoding planetary coordinates...</p>
+        </div>
+    </div>
+
+    <!--==========================
+        Image Expansion Dialog Modal
+    ===========================-->
+    <div id="imageModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalLabel">
+        <span class="close" id="closeIconBtn" aria-label="Close dialog">&times;</span>
+
+        <div class="modal-content-wrapper">
+            <img id="modalImage" class="modal-content" src="" alt="Expanded nature high resolution view">
+        </div>
+        <h3 id="modalLabel" class="modal-caption font-orbitron">Planetary Record</h3>
+
+        <div class="modal-buttons">
+            <button id="downloadBtn" class="primary-btn ripple-btn">
+                <i class="fa-solid fa-download"></i> Downlink HD File
+            </button>
+            <button id="closeBtn" class="secondary-btn blur-btn">
+                Close Feed
+            </button>
+        </div>
+    </div>
+
+    <!--==========================
+        Scroll To Top Trigger
+    ===========================-->
+    <button id="scrollTopBtn" class="scrollTopBtn" aria-label="Scroll back to top of page" title="Scroll to Top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!--==========================
+        Footer Details
+    ===========================-->
+    <footer id="footer">
+        <div class="footer-container">
+            <div class="footer-about">
+                <h2 class="font-orbitron">🌍 Earth Wonders</h2>
+                <p class="font-inter">
+                    Discover the raw aesthetic scale of our home planet through high-definition physical landscape
+                    records cataloged via Unsplash Open APIs.
+                </p>
+                <div class="footer-badge-strip">
+                    <span class="badge"><i class="fa-solid fa-seedling text-green"></i> 100% ECO-FRIENDLY GATEWAY</span>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h3 class="font-orbitron">CATEGORIES</h3>
+                <ul>
+                    <li><a href="#gallerySection">💦 Waterfalls</a></li>
+                    <li><a href="#gallerySection">🌋 Volcanoes</a></li>
+                    <li><a href="#gallerySection">❄ Glaciers</a></li>
+                    <li><a href="#gallerySection">🌲 Forests</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contact">
+                <h3 class="font-orbitron">DEVELOPER TELEMETRIES</h3>
+                <p class="font-orbitron">👨‍💻 Abhay Singh</p>
+                <p class="font-inter">Full Stack Interface Engineer</p>
+
+                <div class="social-icons">
+                    <a href="https://github.com/Abhay71044" target="_blank" aria-label="GitHub Developer Profile">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/abhay-singh-894044292" target="_blank"
+                        aria-label="LinkedIn Professional Profile">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram Profile">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <hr class="footer-divider">
+
+        <div class="footer-bottom font-orbitron">
+            <p>MADE WITH ❤️ BY ABHAY SINGH © 2026. COSMA NETWORKS.</p>
+            <p>POWERED BY UNSPLASH PHOTO TELEMETRY SYSTEMS.</p>
+        </div>
+    </footer>
+
+    <!-- Custom Core Scripts for Earth Wonders -->
+    <script src="earth.js"></script>
+</body>
+
+</html>
