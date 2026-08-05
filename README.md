@@ -109,6 +109,6 @@
 
 ### 🌌 *"Exploring the Universe, One API at a Time."*
 
-Made with ❤️ by **Abhay Singh**
+Made by **Abhay Singh**
 
 </div>
