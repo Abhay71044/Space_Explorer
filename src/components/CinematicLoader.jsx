@@ -108,9 +108,20 @@ export default function CinematicLoader({ onComplete }) {
         <div className="absolute w-32 h-32 rounded-full border-2 border-dashed border-neon-cyan/50 animate-[spin_8s_linear_infinite]"></div>
         <div className="absolute w-24 h-24 rounded-full border border-dashed border-neon-purple/60 animate-[spin_5s_linear_infinite_reverse]"></div>
 
-        {/* Core Glowing Emblem */}
-        <div className="relative w-20 h-20 rounded-2xl bg-black/80 backdrop-blur-xl border border-neon-cyan/60 flex items-center justify-center shadow-glow-cyan">
-          <Rocket className="w-10 h-10 text-neon-cyan animate-bounce" />
+        {/* Core Glowing 3D Rotating Earth Globe */}
+        <div className="relative w-28 h-28 rounded-full border-2 border-neon-cyan/80 p-1 flex items-center justify-center bg-black/90 backdrop-blur-xl shadow-glow-cyan overflow-hidden">
+          <div className="w-full h-full rounded-full overflow-hidden relative shadow-[inset_0_0_25px_rgba(0,242,254,0.7)]">
+            <img 
+              src="https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?auto=format&fit=crop&w=400&q=80" 
+              alt="Rotating Earth Globe" 
+              className="w-full h-full object-cover rounded-full animate-[spin_12s_linear_infinite] scale-125 shadow-2xl"
+              onError={(e) => {
+                e.target.src = 'https://images-assets.nasa.gov/image/PIA18033/PIA18033~orig.jpg';
+              }}
+            />
+            {/* Atmospheric Blue Halo Overlay */}
+            <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-cyan-500/40 via-transparent to-blue-600/50 pointer-events-none border border-cyan-300/40"></div>
+          </div>
         </div>
       </div>
 
