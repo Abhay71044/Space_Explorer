@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  body.light {
+    background-color: #f8fafc !important;
+    color: #0f172a !important;
+  }
+}
+
+
+
+/* Glassmorphism Cards */
+.glass-card {
+  background: rgba(10, 15, 30, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 242, 254, 0.15);
+  border-radius: 1rem;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* High Quality Light Mode Card & Text Rules */
+.light .glass-card {
+  background: rgba(255, 255, 255, 0.92) !important;
+  border: 1px solid rgba(203, 213, 225, 0.8) !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04) !important;
+  color: #0f172a !important;
+}
+
+.light h1, .light h2, .light h3, .light h4, .light h5, .light h6,
+.light .text-slate-100, .light .text-slate-200, .light .text-white {
+  color: #0f172a !important;
+}
+
+.light .text-slate-300 {
+  color: #334155 !important;
+}
+
+.light .text-slate-400 {
+  color: #475569 !important;
+}
+
+.light input, .light select, .light textarea {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+
+.light .bg-black\/60, .light .bg-black\/40, .light .bg-black\/80, .light .bg-black\/90 {
+  background-color: rgba(241, 245, 249, 0.95) !important;
+  color: #0f172a !important;
+  border-color: rgba(203, 213, 225, 0.8) !important;
+}
+
+.light .bg-white\/5, .light .bg-white\/10 {
+  background-color: rgba(241, 245, 249, 0.9) !important;
+  border-color: rgba(203, 213, 225, 0.8) !important;
+  color: #0f172a !important;
+}
+
+.light header {
+  background-color: rgba(255, 255, 255, 0.92) !important;
+  border-bottom: 1px solid rgba(203, 213, 225, 0.8) !important;
+}
+
+.light footer {
+  background-color: rgba(248, 250, 252, 0.95) !important;
+  border-top: 1px solid rgba(203, 213, 225, 0.8) !important;
+  color: #475569 !important;
+}
+
+/* Glowing text gradients */
+.gradient-text-cyan {
+  background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.light .gradient-text-cyan {
+  background: linear-gradient(135deg, #0284c7 0%, #1d4ed8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-purple {
+  background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #020205;
+}
+
+.light ::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 242, 254, 0.3);
+  border-radius: 4px;
+}
+
+.light ::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.6);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 242, 254, 0.6);
+}
+
+/* Skeleton loader effect */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.skeleton-loader {
+  background: linear-gradient(90deg, rgba(255,255,255,0.05) 25%, rgba(255,255,255,0.15) 50%, rgba(255,255,255,0.05) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Leaflet dark theme tweaks */
+.leaflet-container {
+  background: #0a0f1e !important;
+  border-radius: 0.75rem;
+}
