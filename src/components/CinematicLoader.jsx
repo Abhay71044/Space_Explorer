@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Rocket, FastForward, Sparkles, Orbit, Globe } from 'lucide-react';
+import { FastForward, Sparkles } from 'lucide-react';
 import { playRocketLaunchRumble } from '../utils/audioSynthesizer';
 
 const STATUS_MESSAGES = [
@@ -38,7 +38,7 @@ export default function CinematicLoader({ onComplete }) {
 
     let animId;
     const render = () => {
-      ctx.fillStyle = "rgba(2, 2, 8, 0.25)";
+      ctx.fillStyle = "#020208";
       ctx.fillRect(0, 0, w, h);
 
       const cx = w / 2;
@@ -62,7 +62,7 @@ export default function CinematicLoader({ onComplete }) {
           ctx.beginPath();
           ctx.arc(px, py, Math.max(0.5, r), 0, Math.PI * 2);
           ctx.fillStyle = `rgba(0, 242, 254, ${alpha})`;
-          ctx.shadowBlur = 10;
+          ctx.shadowBlur = 8;
           ctx.shadowColor = "#00f2fe";
           ctx.fill();
         }
@@ -98,29 +98,33 @@ export default function CinematicLoader({ onComplete }) {
     <div className="fixed inset-0 z-50 bg-[#020208] flex flex-col items-center justify-center p-6 text-center font-orbitron overflow-hidden">
       <canvas ref={canvasRef} className="absolute inset-0 pointer-events-none" />
 
-      {/* Holographic Glowing Orbit Core */}
-      <div className="relative mb-10 flex items-center justify-center">
-        {/* Outer Pulsing Aura */}
-        <div className="w-36 h-36 rounded-full bg-cyan-500/20 blur-3xl animate-pulse"></div>
-        <div className="absolute w-28 h-28 rounded-full border border-neon-cyan/40 animate-ping"></div>
+      {/* Perfectly Centered Orbit Core & 3D Spinning Blue Earth */}
+      <div className="relative w-40 h-40 mb-10 flex items-center justify-center">
+        {/* Ambient Outer Glow */}
+        <div className="absolute inset-0 rounded-full bg-cyan-500/20 blur-3xl animate-pulse"></div>
 
-        {/* Orbit Rings */}
-        <div className="absolute w-32 h-32 rounded-full border-2 border-dashed border-neon-cyan/50 animate-[spin_8s_linear_infinite]"></div>
-        <div className="absolute w-24 h-24 rounded-full border border-dashed border-neon-purple/60 animate-[spin_5s_linear_infinite_reverse]"></div>
+        {/* Pulsing Outer Ping Ring */}
+        <div className="absolute w-36 h-36 rounded-full border border-neon-cyan/40 animate-ping"></div>
 
-        {/* Core Glowing 3D Rotating Earth Globe */}
-        <div className="relative w-28 h-28 rounded-full border-2 border-neon-cyan/80 p-1 flex items-center justify-center bg-black/90 backdrop-blur-xl shadow-glow-cyan overflow-hidden">
-          <div className="w-full h-full rounded-full overflow-hidden relative shadow-[inset_0_0_25px_rgba(0,242,254,0.7)]">
+        {/* Rotating Outer Telemetry Ring */}
+        <div className="absolute w-36 h-36 rounded-full border-2 border-dashed border-neon-cyan/50 animate-[spin_10s_linear_infinite]"></div>
+
+        {/* Counter-Rotating Inner Telemetry Ring */}
+        <div className="absolute w-28 h-28 rounded-full border border-dashed border-neon-purple/70 animate-[spin_6s_linear_infinite_reverse]"></div>
+
+        {/* Dead-Centered 3D Rotating Blue Earth Sphere */}
+        <div className="relative w-24 h-24 rounded-full border-2 border-neon-cyan/90 p-0.5 flex items-center justify-center bg-black shadow-glow-cyan overflow-hidden z-10">
+          <div className="w-full h-full rounded-full overflow-hidden relative shadow-[inset_0_0_20px_rgba(0,242,254,0.8)]">
             <img 
-              src="https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?auto=format&fit=crop&w=400&q=80" 
-              alt="Rotating Earth Globe" 
-              className="w-full h-full object-cover rounded-full animate-[spin_12s_linear_infinite] scale-125 shadow-2xl"
+              src="https://images-assets.nasa.gov/image/PIA18033/PIA18033~orig.jpg" 
+              alt="3D Spinning Earth" 
+              className="w-full h-full object-cover rounded-full animate-[spin_14s_linear_infinite] scale-125"
               onError={(e) => {
-                e.target.src = 'https://images-assets.nasa.gov/image/PIA18033/PIA18033~orig.jpg';
+                e.target.src = 'https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?auto=format&fit=crop&w=500&q=80';
               }}
             />
-            {/* Atmospheric Blue Halo Overlay */}
-            <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-cyan-500/40 via-transparent to-blue-600/50 pointer-events-none border border-cyan-300/40"></div>
+            {/* Real Atmosphere Blue Glow Overlay */}
+            <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-cyan-500/40 via-transparent to-blue-600/60 pointer-events-none border border-cyan-300/40"></div>
           </div>
         </div>
       </div>
@@ -136,7 +140,7 @@ export default function CinematicLoader({ onComplete }) {
       </div>
 
       {/* Progress Bar Container */}
-      <div className="relative z-10 w-full max-w-md bg-black/60 backdrop-blur-md p-4 rounded-2xl border border-white/10 shadow-2xl mb-4">
+      <div className="relative z-10 w-full max-w-md bg-black/80 backdrop-blur-xl p-4 rounded-2xl border border-white/10 shadow-2xl mb-4">
         <div className="flex items-center justify-between text-xs mb-2">
           <span className="text-slate-400 font-medium">Uplink Status</span>
           <span className="text-neon-cyan font-bold font-mono">{progress}%</span>
