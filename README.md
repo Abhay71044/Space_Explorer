@@ -1,206 +1,114 @@
-<<<<<<< HEAD
-# Space_Explorer
- Explore the universe with NASA APIs! View Astronomy Picture of the Day, Mars Rover images, Earth data, and more through a modern, responsive web application.
-=======
-# 🚀 COSMA - NASA & Earth Exploration Platform
+# 🚀 COSMA - 3D Space & Earth Exploration Platform
 
 <div align="center">
 
-![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![CSS](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-https%3A%2F%2Fspace--explorer--1i4q.onrender.com-00f2fe?style=for-the-badge&logo=render&logoColor=black)](https://space-explorer-1i4q.onrender.com)
+![React](https://img.shields.io/badge/React_18-61DAFB?style=for-the-badge&logo=react&logoColor=black)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38BDF8?style=for-the-badge&logo=tailwindcss&logoColor=white)
 ![NASA API](https://img.shields.io/badge/NASA-API-blue?style=for-the-badge)
 ![Unsplash API](https://img.shields.io/badge/Unsplash-API-black?style=for-the-badge)
 
-### 🌌 Explore Space, Earth and the Universe in One Beautiful Web Experience
+### 🌌 Explore 3D Solar Systems, Exoplanets, NASA Telemetry & Earth Wonders in One Immersive Web Experience
+
+🔗 **Live Deployment:** [https://space-explorer-1i4q.onrender.com](https://space-explorer-1i4q.onrender.com)
 
 </div>
 
 ---
 
-## 📖 About
+## 📖 About COSMA
 
-COSMA is a modern and immersive web application inspired by NASA, SpaceX, and Apple design principles.
-
-It provides real-time space information using NASA APIs along with a beautiful Earth Wonders gallery powered by the Unsplash API.
-
-The platform focuses on creating a premium user experience with smooth animations, interactive visualizations, and responsive design.
+**COSMA Space Explorer** is an interactive web platform designed for space enthusiasts, researchers, and stargazers. Inspired by NASA JPL telemetry systems, SpaceX flight dashboards, and modern glassmorphic aesthetics, COSMA combines real-time NASA APIs, 3D Canvas simulations, and an intelligent AI Space Assistant.
 
 ---
 
-# ✨ Features
+## ✨ Features & Modules
 
-## 🚀 Space Exploration
+### 🪐 3D Interactive Solar System Orrery
+- Real-time 3D planetary orbits revolving around the Sun.
+- Individual planetary inspection cards with 3D models, physical metrics (diameter, distance, moons, surface temperatures), and orbital speeds.
 
-- 🌌 Astronomy Picture of the Day (APOD)
-- 🔴 Mars Rover Images
-- 🌍 Earth EPIC Images
-- 🛰️ Live ISS Tracking
-- ☄️ Asteroid Monitoring
-- 🌠 Space Weather Information
-- 📅 Cosmic Watch Timeline
-- 📜 Space History Timeline
+### 🪐 3D Interactive Exoplanet Explorer
+- Explore distant alien worlds (Kepler-186f, TRAPPIST-1e, Proxima Centauri b, HD 209458 b).
+- Real-time atmosphere simulator, habitability metrics, spectral signatures, and light curve graphs.
 
----
+### 🤖 TARS Onboard AI Space Chatbot
+- Humanoid space intelligence capable of answering questions regarding astrophysics, space exploration, missions, and planetary telemetry.
+- Voice synth response feedback and contextual space trivia.
 
-## 🌍 Earth Wonders
+### 🌌 NASA Astronomy Picture of the Day (APOD)
+- High-definition daily snapshots of the cosmos curated by NASA astrophysicists.
+- Instant direct-to-disk HD image downlinking and archival calendar search.
 
-- 🏔 Mountains
-- 🌊 Waterfalls
-- 🌋 Volcanoes
-- 🌲 Forests
-- ❄️ Glaciers
-- 🏖 Beaches
-- 🏝 Islands
-- 🌌 Aurora Gallery
-- 🔍 Smart Image Search
-- ❤️ Favorites
-- 📥 Image Download
-- 📤 Share Images
+### 🔴 Mars Surface Operations
+- High-resolution Martian surface photographs captured by Curiosity, Perseverance, Opportunity, and Spirit rovers.
+- Filter by Sol coordinates and specialized camera telemetry (FHAZ, RHAZ, MAST, NAVCAM).
 
----
+### 🌍 Earth EPIC Satellite & Climate Operations
+- Real-time full-color Earth imagery captured from 1.5 million kilometers away by the DSCOVR satellite at the L1 Lagrangian point.
+- Active global natural hazards tracking (wildfires, cyclones, volcanoes, polar ice melting) powered by NASA EONET.
 
-# 🎨 UI Features
+### 🛰️ Space Control Center & ISS Live Tracking
+- Interactive satellite map tracking the real-time orbital path, latitude, longitude, velocity, and elevation of the International Space Station (ISS).
+- Near-Earth Asteroid (NEO) hazardous object radar and Space Weather alerts (Solar Flares, Geomagnetic Storms).
 
-- ✨ Apple Inspired UI
-- 🚀 SpaceX Inspired Design
-- 🌌 Glassmorphism
-- 🌠 Animated Backgrounds
-- 🌙 Dark / Light Mode
-- ♿ High Contrast Accessibility
-- 📱 Fully Responsive
-- 🎵 Interactive Sound Effects
-- 🖱️ Custom Cursor
-- 🎞️ Smooth Animations
+### 🌍 Earth Wonders Gallery
+- High-resolution geographical landscape repository powered by Unsplash API (Waterfalls, Volcanoes, Glaciers, Mountains, Auroras, Islands).
+- One-click direct HD image downlinking, bookmarking, and social sharing.
 
 ---
 
-# 🛠️ Technologies Used
+## 🛠️ Tech Stack & Architecture
 
-- HTML5
-- CSS3
-- JavaScript (Vanilla JS)
-- NASA Open APIs
-- Unsplash API
-- Leaflet.js
-- Font Awesome
-- Google Fonts
+- **Frontend Core:** React 18, Vite
+- **Styling:** Vanilla CSS3, TailwindCSS, Glassmorphism, CSS 3D Transforms
+- **Icons & UI:** Lucide React, Google Orbitron & Inter Typography
+- **Telemetry APIs:** NASA JPL APIs (APOD, Mars Rover, EPIC, EONET, NeoWs, DONKI), Open-Notify ISS API, Unsplash API
+- **Deployment:** Render Static Site Services
 
 ---
 
-# 📂 Project Structure
+## 🚀 Local Installation & Setup
 
-```
-COSMA/
-│
-├── Assets/
-│
-├── index.html
-├── style.css
-├── script.js
-│
-├── earth.html
-├── earth.css
-├── earth.js
-│
-└── README.md
-```
+1. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/Abhay71044/Space_Explorer.git
+   cd Space_Explorer
+   ```
 
----
+2. **Install Dependencies:**
+   ```bash
+   npm install
+   ```
 
-# 🚀 Getting Started
+3. **Start Development Server:**
+   ```bash
+   npm run dev
+   ```
 
-Clone the repository
-
-```bash
-git clone https://github.com/Abhay71044/Space_Explorer.git
-```
-
-Go to the project folder
-
-```bash
-cd Space_Explorer
-```
-
-Open
-
-```
-index.html
-```
-
-using Live Server in VS Code.
+4. **Build Production Bundle:**
+   ```bash
+   npm run build
+   ```
 
 ---
 
-# 🌐 APIs Used
+## 👨‍💻 Developer & Author
 
-- NASA Open APIs
-- Unsplash API
+**Abhay Singh**  
+🎓 *B.Tech CSE (Artificial Intelligence)*  
+📍 *Greater Noida, India*
 
----
-
-# 📱 Responsive Design
-
-✔ Desktop
-
-✔ Laptop
-
-✔ Tablet
-
-✔ Mobile
+- 🐙 **GitHub:** [https://github.com/Abhay71044](https://github.com/Abhay71044)
+- 💼 **LinkedIn:** [https://www.linkedin.com/in/abhay-singh-894044292](https://www.linkedin.com/in/abhay-singh-894044292)
 
 ---
-
-# 🎯 Future Improvements
-
-- AI Space Chatbot
-- User Authentication
-- Bookmark Synchronization
-- Weather on Other Planets
-- Launch Schedule
-- Satellite Visualization
-- 3D Solar System
-
----
-
-# 👨‍💻 Developer
-
-**Abhay Singh**
-
-🎓 B.Tech CSE (AI)
-
-📍 Greater Noida, India
-
-### Connect with me
-
-GitHub
-
-https://github.com/Abhay71044
-
-LinkedIn
-
-https://www.linkedin.com/in/abhay-singh-894044292
-
----
-
-# ⭐ Show your support
-
-If you like this project,
-
-⭐ Star this repository
-
-🍴 Fork it
-
-📢 Share it
-
----
-
 
 <div align="center">
 
-## 🌌 "Exploring the Universe, One API at a Time."
+### 🌌 *"Exploring the Universe, One API at a Time."*
 
-Made by **Abhay Singh**
+Made with ❤️ by **Abhay Singh**
 
 </div>
->>>>>>> be76925946ecb78a47b165385a2eee366cec7d7a
