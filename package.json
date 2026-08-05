@@ -6,7 +6,6 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -19,9 +18,7 @@
     "postcss": "^8.4.49",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "tailwindcss": "^3.4.17"
-  },
-  "devDependencies": {
-    "vite": "^8.2.0"
+    "tailwindcss": "^3.4.17",
+    "vite": "^6.0.7"
   }
 }
